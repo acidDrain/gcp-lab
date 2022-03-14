@@ -2,6 +2,13 @@
 
 A project to deploy a lab environment for GCP.
 
+- [Details](#details)
+  - [Diagram](#diagram)
+  - [Configuration](#configuration)
+  - [Caveats](#caveats)
+    - [Questions](#questions)
+- [References](#references)
+
 ## Details
 
 This lab implements the following:
@@ -34,6 +41,15 @@ There is only a single WAF signature being utilized (`sql injection`) for a few 
 - risk of production issues is higher when implementing a WAF policy without a baseline of traffic to base the policy against
 - we want to go through a few threat modeling exercises to articulate the threats we should target in the WAF policy
 - we will use the outputs from the threat modeling exercises to produce the WAF policy/configuration in more granularity for the service' use case
+
+### Configuration
+
+| input variable |   type   | description                                       | default value | required |
+| :------------: | :------: | ------------------------------------------------- | :-----------: | :------: |
+|   `provider`   | `string` | The GCP `project` that deployment should target   |     `n/a`     | **yes**  |
+|    `region`    | `string` | The GCP `region` that deployment should target    |     `n/a`     | **yes**  |
+| `network_tier` | `string` | The GCP `network_tier` that deployment should use |   `PREMIUM`   |    no    |
+| `credentials`  | `string` | The GCP `credentials` terraform should use        |     `n/a`     |   yes    |
 
 ### Caveats
 
