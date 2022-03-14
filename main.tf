@@ -326,4 +326,13 @@ resource "google_dns_record_set" "http" {
   rrdatas = [module.gce-lb-http.external_ip]
 }
 
+resource "google_dns_record_set" "ssh" {
+  name = "ssh.${google_dns_managed_zone.gcp-lab.dns_name}"
+  type = "A"
+  ttl  = 300
+
+  managed_zone = google_dns_managed_zone.gcp-lab.name
+
+  rrdatas = [google_compute_instance.sub1-rhel.network_interface.0.access_config.0.nat_ip]
+}
 
