@@ -1,0 +1,14 @@
+.terraform
+plans
+*.bin
+**/*.bin
+Session.vim
+**/Session.vim
+.env
+**/.env
+.vim
+**/.vim
+*.tfstate*
+**/*.tfvars
+*.tfvars
+
